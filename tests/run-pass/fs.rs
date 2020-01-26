@@ -39,6 +39,8 @@ fn main() {
     // Reading until EOF should get the whole text.
     file.read_to_end(&mut contents).unwrap();
     assert_eq!(bytes, contents.as_slice());
+    // Cloning a file should be successful
+    file.try_clone().unwrap();
 
     // Test that metadata of an absolute path is correct.
     test_metadata(bytes, &path).unwrap();
